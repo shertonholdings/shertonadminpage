@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sherton Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: darkblue;
+        }
+        p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: darkgreen;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function submitForm() {
+            const adminName = document.getElementById('adminName').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+
+            // Show waiting message
+            message.innerText = "Please wait while we check the details...";
+
+            setTimeout(function () {
+                if (password === 'shertonadmin1') {
+                    window.location.href = "https://sites.google.com/view/shertonownerpage/home";
+                } else {
+                    message.innerText = "Incorrect admin details! Kindly enter CORRECT Admin User details and try again!";
+                }
+            }, 1500); // Simulate a short delay for the message
+
+            return false; // Prevent form submission
+        }
+
+        // Auto-refresh the form every 10 seconds
+        setTimeout(function () {
+            location.reload();
+        }, 10000); // 10 seconds = 10000 milliseconds
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgV2Us_OTN27vsAI-rB3zWd-kd9bSLTVaf4mu9CY2WsjkXBSYJ5sxFO-hIICcKucXZomDnqLjRPfnUqwzovuiU2oxAyvXLJVsiiy7sEp4IRVdPelr7IyMm6zbV8L0EpIQQwrYZb8F-7C2fEx4wVhtzQt1FvvuCEZWYdf14mxfZHB2WKy618J-IIo9BWIqxX/w102-h90/1721060054864_sherton-high-resolution-logo~2.jpg" alt="Logo">
+        <h1>Sherton Admin Page</h1>
+        <p>Enter Admin details to login.</p>
+        <form onsubmit="return submitForm()">
+            <input type="text" id="adminName" placeholder="Admin Name" required><br>
+            <input type="password" id="password" placeholder="Password" required><br>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        <div id="message" class="message"></div>
+    </div>
+
+</body>
+</html>
